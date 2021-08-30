@@ -1,0 +1,49 @@
+:toc2:
+
+= AgnosticV, vars for link:https://github.com/redhat-cop/agnosticd[AgnosticD]
+
+
+This repo contains the variables needed for catalog items present in RHPDS and labs.opentlc.com.
+
+
+== Goals
+
+* Separate code and data
+* Deploy the same way we develop, using a yaml file.
+** Easy onboarding of lab and demo creators
+* Contain catalog information (description, ...)
+** Automatically generate catalog
+* Lab creators and Administrator will easily contribute to agnosticV
+* Easy maintenance (YAML files in a git repo)
+* Introduce good processes for contributing
+** Pull request
+** Peer review
+** Automatic tests
+*** Syntax checking, Linters
+*** Enforce policies (ex: "catalog item must have a description")
+*** Detect non-documented variables
+* Risk mitigation: no more manual operations on the deployment servers
+
+== Structure
+
+----
+common.yaml
+
+ACCOUNT/
+    common.yaml
+
+   CATALOGITEM1/
+         common.yaml
+         dev.yaml
+         test.yaml
+         prod.yaml
+
+
+   CATALOGITEM2/
+         common.yaml
+         dev.yaml
+         test.yaml
+         prod.yaml
+----
+
+See main repository for details, this sample is for structure examples only.
